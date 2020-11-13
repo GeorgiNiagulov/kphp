@@ -125,11 +125,10 @@ LambdaGenerator &LambdaGenerator::require(DataStream<FunctionPtr> &os) {
 
   auto constructor = generated_lambda->construct_function;
   kphp_assert(constructor && !constructor->is_required);
-  // generated_lambda->patch_func_constructor(os);
   if (!constructor->is_lambda_with_uses()) {
     G->require_function(constructor, os);
+    G->require_function(invoke_method->function, os);
   }
-  G->require_function(invoke_method->function, os);
 
   G->register_and_require_function(generated_lambda->gen_holder_function(generated_lambda->name), os, true);
 

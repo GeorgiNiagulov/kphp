@@ -494,6 +494,9 @@ private:
         call->location.function = current_function;
         lambda_class->construct_function->is_template = false;
         G->require_function(lambda_class->construct_function, instance_of_function_template_stream);
+
+        auto invoke_method = lambda_class->members.get_instance_method(LambdaClassData::NAME_OF_INVOKE_METHOD)->function;
+        G->require_function(invoke_method, instance_of_function_template_stream);
       }
 
       return call;
