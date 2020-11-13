@@ -50,6 +50,7 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_switch] = "tok_switch";
   TOKEN_TYPE_NAMES[tok_class] = "tok_class";
   TOKEN_TYPE_NAMES[tok_interface] = "tok_interface";
+  TOKEN_TYPE_NAMES[tok_trait] = "tok_trait";
   TOKEN_TYPE_NAMES[tok_extends] = "tok_extends";
   TOKEN_TYPE_NAMES[tok_implements] = "tok_implements";
   TOKEN_TYPE_NAMES[tok_namespace] = "tok_namespace";
@@ -69,6 +70,8 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_var] = "tok_var";
   TOKEN_TYPE_NAMES[tok_global] = "tok_global";
   TOKEN_TYPE_NAMES[tok_static] = "tok_static";
+  TOKEN_TYPE_NAMES[tok_final] = "tok_final";
+  TOKEN_TYPE_NAMES[tok_abstract] = "tok_abstract";
   TOKEN_TYPE_NAMES[tok_goto] = "tok_goto";
   TOKEN_TYPE_NAMES[tok_isset] = "tok_isset";
   TOKEN_TYPE_NAMES[tok_declare] = "tok_declare";
@@ -79,6 +82,7 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_gt] = "tok_gt";
   TOKEN_TYPE_NAMES[tok_le] = "tok_le";
   TOKEN_TYPE_NAMES[tok_ge] = "tok_ge";
+  TOKEN_TYPE_NAMES[tok_spaceship] = "tok_spaceship";
   TOKEN_TYPE_NAMES[tok_neq2] = "tok_neq2";
   TOKEN_TYPE_NAMES[tok_neq3] = "tok_neq3";
   TOKEN_TYPE_NAMES[tok_neq_lg] = "tok_neq_lg";
@@ -93,6 +97,7 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_dot] = "tok_dot";
   TOKEN_TYPE_NAMES[tok_colon] = "tok_colon";
   TOKEN_TYPE_NAMES[tok_at] = "tok_at";
+  TOKEN_TYPE_NAMES[tok_pow] = "tok_pow";
   TOKEN_TYPE_NAMES[tok_inc] = "tok_inc";
   TOKEN_TYPE_NAMES[tok_dec] = "tok_dec";
   TOKEN_TYPE_NAMES[tok_plus] = "tok_plus";
@@ -106,6 +111,7 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_not] = "tok_not";
   TOKEN_TYPE_NAMES[tok_log_not] = "tok_log_not";
   TOKEN_TYPE_NAMES[tok_question] = "tok_question";
+  TOKEN_TYPE_NAMES[tok_null_coalesce] = "tok_null_coalesce";
   TOKEN_TYPE_NAMES[tok_leq] = "tok_leq";
   TOKEN_TYPE_NAMES[tok_shl] = "tok_shl";
   TOKEN_TYPE_NAMES[tok_geq] = "tok_geq";
@@ -116,6 +122,7 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_set_mul] = "tok_set_mul";
   TOKEN_TYPE_NAMES[tok_set_div] = "tok_set_div";
   TOKEN_TYPE_NAMES[tok_set_mod] = "tok_set_mod";
+  TOKEN_TYPE_NAMES[tok_set_pow] = "tok_set_pow";
   TOKEN_TYPE_NAMES[tok_set_and] = "tok_set_and";
   TOKEN_TYPE_NAMES[tok_log_and] = "tok_log_and";
   TOKEN_TYPE_NAMES[tok_log_and_let] = "tok_log_and_let";
@@ -137,11 +144,15 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_dir_c] = "tok_dir_c";
   TOKEN_TYPE_NAMES[tok_line_c] = "tok_line_c";
   TOKEN_TYPE_NAMES[tok_method_c] = "tok_method_c";
+  TOKEN_TYPE_NAMES[tok_namespace_c] = "tok_namespace_c";
   TOKEN_TYPE_NAMES[tok_int] = "tok_int";
   TOKEN_TYPE_NAMES[tok_float] = "tok_float";
   TOKEN_TYPE_NAMES[tok_string] = "tok_string";
   TOKEN_TYPE_NAMES[tok_object] = "tok_object";
+  TOKEN_TYPE_NAMES[tok_callable] = "tok_callable";
   TOKEN_TYPE_NAMES[tok_bool] = "tok_bool";
+  TOKEN_TYPE_NAMES[tok_void] = "tok_void";
+  TOKEN_TYPE_NAMES[tok_mixed] = "tok_mixed";
   TOKEN_TYPE_NAMES[tok_conv_int] = "tok_conv_int";
   TOKEN_TYPE_NAMES[tok_conv_float] = "tok_conv_float";
   TOKEN_TYPE_NAMES[tok_conv_string] = "tok_conv_string";
@@ -161,14 +172,20 @@ void fillTokenTypeNames() {
   TOKEN_TYPE_NAMES[tok_triple_lt] = "tok_triple_lt";
   TOKEN_TYPE_NAMES[tok_throw] = "tok_throw";
   TOKEN_TYPE_NAMES[tok_new] = "tok_new";
+  TOKEN_TYPE_NAMES[tok_Exception] = "tok_Exception";
   TOKEN_TYPE_NAMES[tok_try] = "tok_try";
   TOKEN_TYPE_NAMES[tok_catch] = "tok_catch";
   TOKEN_TYPE_NAMES[tok_public] = "tok_public";
   TOKEN_TYPE_NAMES[tok_private] = "tok_private";
   TOKEN_TYPE_NAMES[tok_protected] = "tok_protected";
+  TOKEN_TYPE_NAMES[tok_phpdoc] = "tok_phpdoc";
   TOKEN_TYPE_NAMES[tok_clone] = "tok_clone";
   TOKEN_TYPE_NAMES[tok_instanceof] = "tok_instanceof";
   TOKEN_TYPE_NAMES[tok_end] = "tok_end";
+
+  // this assert will fail whether new TokenType entry is added;
+  // how to fix: add TOKEN_TYPE_NAMES[$newtok] = "$newtok" to the block above
+  kphp_assert((TOKEN_TYPE_NAMES.size()-1) == tok_end);
 }
 
 void fillOperationNames() {
